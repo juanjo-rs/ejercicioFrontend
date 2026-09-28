@@ -10,9 +10,9 @@ body {
 }
 
 .app {
-  max-width: 960px;
+  max-width: 950px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 1px;
 }
 
 .filtros {
@@ -36,13 +36,26 @@ body {
 .personajes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 10px;
+    gap: 20px;
 }
 
 .personaje-card {
   background: #172033;
   border-radius: 12px;
   overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.personaje-card img {
+  transition: transform 0.25s ease;
+}
+.personaje-card:hover {
+  transform: translateY(-4px);
+  border-color: #c9f006;
+}
+.personaje-card:hover img {
+  transform: scale(1.05);
 }
 
 .personaje-card img {

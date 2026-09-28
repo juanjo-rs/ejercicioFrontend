@@ -59,7 +59,7 @@ function TodosVivos(personajes){
 }
 
 function OrdenarAlfabeticamente(personajes){
-    return personajes.sort(function (a,b) {
+    return [...personajes].sort(function (a,b) {
         return a.name.localeCompare(b.name)
     })
 }
