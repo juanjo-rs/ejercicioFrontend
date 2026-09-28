@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: system-ui, sans-serif;
   background: #10141d;
-  color: #f4f6fb;
+  color: #ffffff;
 }
 
 .app {
@@ -33,8 +33,11 @@ body {
 
 /* TODO: dale layout a .personajes-grid con CSS Grid o con Flexbox.
    Compara las dos versiones en "Grid vs Flex" antes de decidir cuál usar aquí. */
-/* .personajes-grid { */
-/* } */
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+}
 
 .personaje-card {
   background: #172033;
