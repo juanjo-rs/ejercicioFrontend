@@ -34,6 +34,15 @@ function filtrarPorEspecie(personajes, especie) {
   // dejando solo los que coinciden (repasa el ejercicio 3 de la práctica).
 }
 
+function filtrarPorGenero(personajes,genero){
+    if (genero === ""){
+        return personajes;
+    }
+    return personajes.filter(function (personaje){
+        return personaje.gender === genero
+    })
+}
+
 function ObtenerNombres(personajes){
     return personajes.map(function (personaje){
         return personaje.name
@@ -84,9 +93,11 @@ function aplicarFiltros() {
   const nombre = document.querySelector("#filtro-nombre").value.trim().toLowerCase();
   const estado = document.querySelector("#filtro-estado").value;
   const especie = document.querySelector("#filtro-especie").value;
+  const genero = document.querySelector("#filtro-genero").value;
 
   let filtrados = filtrarPorEstado(personajes, estado);
   filtrados = filtrarPorEspecie(filtrados, especie);
+  filtrados = filtrarPorGenero(filtrados, genero)
   filtrados = filtrados.filter(function (personaje) {
     return personaje.name.toLowerCase().includes(nombre);
   });
@@ -104,7 +115,7 @@ function pintarResultados(lista) {
         '<article class="personaje-card">' +
         '<img src="' + personaje.image + '" alt="' + personaje.name + '" />' +
         "<h3>" + personaje.name + "</h3>" +
-        "<p>" + personaje.status + " · " + personaje.species + "</p>" +
+        "<p>" + personaje.status + " · " + personaje.species + " · "  + personaje.gender + "</p>" +
         "</article>"
       );
     })
@@ -114,6 +125,7 @@ function pintarResultados(lista) {
 document.querySelector("#filtro-nombre").addEventListener("input", aplicarFiltros);
 document.querySelector("#filtro-estado").addEventListener("change", aplicarFiltros);
 document.querySelector("#filtro-especie").addEventListener("change", aplicarFiltros);
+document.querySelector("#filtro-genero").addEventListener("change", aplicarFiltros);
 
 obtenerPersonajes().then(function (datos) {
   personajes = datos;
